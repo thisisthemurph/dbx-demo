@@ -1,8 +1,15 @@
+custom:
+  basic-cluster-props: &basic-cluster-props
+    spark_version: "13.1.x-scala2.12"
+
 build:
-  no_build: true
+  python: "pip"
+
 environments:
   default:
     workflows:
       - name: "dbx-demo-job"
-        spark_python_task:
-          python_file: "file://dbx-demo-job.py"
+        tasks:
+          - task_key: "main"
+            spark_python_task:
+              python_file: "file://dbx-demo-job.py"
