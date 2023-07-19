@@ -3,7 +3,7 @@ custom:
     spark_version: "13.1.x-scala2.12"
 
 build:
-  python: "pip"
+  no_build: true
 
 environments:
   default:
