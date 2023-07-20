@@ -25,6 +25,14 @@ environments:
         tasks:
           - task_key: "calcs_make-data"
             existing_cluster_id: "0620-125415-q7klmhol"
-            spark_python_task: 
+            spark_python_task:
               source: "GIT"
               python_file: "src/calcs_project/tasks/make_data.py"
+
+          - task_key: "calcs_calculate-average-temperature"
+            depends_on:
+              - task_key: "calcs_make-data"
+            existing_cluster_id: "0620-125415-q7klmhol"
+            spark_python_task:
+              source: "GIT"
+              python_file: "src/calcs_project/tasks/calculate_average_temperature.py"
