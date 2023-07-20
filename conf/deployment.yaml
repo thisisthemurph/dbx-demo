@@ -5,6 +5,9 @@ custom:
       git_provider: "GitHub"
       git_branch: "main"
 
+  dev-cluster-information: &dev-cluster-information
+    existing_cluster_id: "0620-125415-q7klmhol"
+
 build:
   no_build: true
 
@@ -24,15 +27,15 @@ environments:
         <<: *git-source-default
         tasks:
           - task_key: "calcs_make-data"
-            existing_cluster_id: "0620-125415-q7klmhol"
+            <<: *dev-cluster-information
             spark_python_task:
               source: "GIT"
               python_file: "src/calcs_project/tasks/make_data.py"
 
           - task_key: "calcs_calculate-average-temperature"
+            <<: *git-source-default
             depends_on:
               - task_key: "calcs_make-data"
-            existing_cluster_id: "0620-125415-q7klmhol"
             spark_python_task:
               source: "GIT"
               python_file: "src/calcs_project/tasks/calculate_average_temperature.py"
