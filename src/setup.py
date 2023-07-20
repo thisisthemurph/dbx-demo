@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-from test_project import __version__
+from test_project import __version__ as test_project_version
 
 PACKAGE_REQUIREMENTS = ["pyyaml"]
 
@@ -33,7 +33,28 @@ setup(
             "bricks = test_project.tasks.dbx-demo-job:entrypoint"
         ]
     },
-    version=__version__,
+    version=test_project_version,
+    description="",
+    author="",
+)
+
+
+
+setup(
+    name="calcs_project",
+    packages=find_packages(exclude=["tests", "tests.*"]),
+    setup_requires=["setuptools", "wheel"],
+    install_requires=PACKAGE_REQUIREMENTS,
+    extra_require={
+        "local": LOCAL_REQUIREMENTS,
+        "test": TEST_REQUIREMENTS,
+    },
+    entry_points={
+        "console_scripts": [
+            "bricks = calcs_project.tasks.make_data:entrypoint"
+        ]
+    },
+    version=test_project_version,
     description="",
     author="",
 )
