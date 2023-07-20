@@ -4,7 +4,7 @@ from test_project import __version__
 PACKAGE_REQUIREMENTS = ["pyyaml"]
 
 LOCAL_REQUIREMENTS = [
-    "pyspark==3.2.1",
+    "pyspark==3.4.0",
     "delta-spark==1.1.0",
     "scikit-learn",
     "pandas",
