@@ -1,5 +1,6 @@
 from setuptools import find_packages, setup
 from test_project import __version__ as test_project_version
+from calcs_project import __version__ as calcs_project_version
 
 PACKAGE_REQUIREMENTS = ["pyyaml"]
 
@@ -38,8 +39,6 @@ setup(
     author="",
 )
 
-
-
 setup(
     name="calcs_project",
     packages=find_packages(exclude=["tests", "tests.*"]),
@@ -54,7 +53,7 @@ setup(
             "bricks = calcs_project.tasks.make_data:entrypoint"
         ]
     },
-    version=test_project_version,
+    version=calcs_project_version,
     description="",
     author="",
 )
