@@ -23,11 +23,21 @@ environments:
       # What is entry point?
       # DO I need to write some code??
 
-      - name: "workflow-1"
+      # - name: "workflow-1"
+      #   tasks:
+      #     - task_key: "wf1-t1"
+      #       <<: *basic-static-cluster
+      #       python_wheel_task:
+      #         package_name: "dbx_demo_job"
+      #         entry_point: "bricks" # take a look at the setup.py entry_points section for details on how to define an entrypoint
+      #         # parameters: ["--conf-file", "file:fuse://conf/tasks/sample_etl_config.yml"]
+      
+      - name: "workflow-2"
+        job_clusters:
+          - job_cluster_key: "default"
         tasks:
-          - task_key: "wf1-t1"
-            <<: *basic-static-cluster
-            python_wheel_task:
-              package_name: "dbx_demo_job"
-              entry_point: "bricks" # take a look at the setup.py entry_points section for details on how to define an entrypoint
-              # parameters: ["--conf-file", "file:fuse://conf/tasks/sample_etl_config.yml"]
+          - task_key: "wf2-t1"
+            job_cluster_key: "default"
+            spark_python_task: 
+              python_file: "file://test_project/tasks/dbx-demo-job.py"
+
