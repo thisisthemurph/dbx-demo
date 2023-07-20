@@ -1,13 +1,4 @@
 custom:
-  basic-cluster-props: &basic-cluster-props
-    spark_version: "13.1.x-scala2.12"
-
-  basic-static-cluster: &basic-static-cluster
-    new_cluster:
-      <<: *basic-cluster-props
-      num_workers: 1
-      node_type_id: "Standard_DS3_v2"
-    
   git-source-default: &git-source-default
     git_source:
       git_url: "https://github.com/thisisthemurph/dbx-demo.git"
