@@ -19,3 +19,12 @@ environments:
             spark_python_task: 
               source: "GIT"
               python_file: "test_project/tasks/dbx-demo-job.py"
+      
+      - name: "demo-calcs-workflow"
+        <<: *git-source-default
+        tasks:
+          - task_key: "calcs_make-data"
+            existing_cluster_id: "0620-125415-q7klmhol"
+            spark_python_task: 
+              source: "GIT"
+              python_file: "calcs_project/tasks/make_data.py"
