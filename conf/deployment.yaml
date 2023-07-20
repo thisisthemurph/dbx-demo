@@ -33,7 +33,7 @@ environments:
               python_file: "src/calcs_project/tasks/make_data.py"
 
           - task_key: "calcs_calculate-average-temperature"
-            <<: *git-source-default
+            <<: *dev-cluster-information
             depends_on:
               - task_key: "calcs_make-data"
             spark_python_task:
